@@ -42,7 +42,7 @@ If you do not recommend any of the models, please justify your reasoning.
 
 1. The data is in `lending_data.csv`, which contains `loan_size`, `interest_rate`, `borrower_income`, `debt_to_income`, `num_of_accounts`, `derogatory_marks`, `total_debt`, and `loan_status`. The `loan_status` column contains either 0 or 1, where 0 means that the loan is healthy, and 1 means that the loan is at a high risk of defaulting. The data was stored the data in a dataframe. A screenshot of the first five rows of the dataframe is shown below.
 
-   <img src="images/dataframe.png" width=900>
+   <img src="Credit_Risk/images/dataframe.png" width=900>
 
 3. The labels set from the `loan_status` column were stored in the `y` variable and the features DataFrame (all the columns except `loan_status`) were stored in the `X` variable. The balance of the labels were checked with `value_counts`. In this dataset, 75036 loans were healthy and 2500 were high-risk.
 
@@ -73,7 +73,7 @@ Confusion matrix:
 
 Classification report:
 
-<img src="images/classification_report_original.png" width=500>
+<img src="Credit_Risk/images/classification_report_original.png" width=500>
 
    - Model 1 Balanced Accuracy: 0.967.
    - Model 1 Accuracy (classification report): 0.993.
@@ -90,7 +90,7 @@ Confusion matrix:
 | Actual Positive  | 55957  | 314  |
 | Actual Negative  |286  | 55985  |
 
-<img src="images/classification_report_resampled.png" width=500>
+<img src="Credit_Risk/images/classification_report_resampled.png" width=500>
 
    - Model 2 Balanced Accuracy: 0.995.
    - Model 2 Accuracy (classification report): 0.995.
