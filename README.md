@@ -6,7 +6,7 @@
 
 ## Overview of the Analysis
 
-In this challenge, we used lending data to build a machine-learning model that evaluates borrowers and identifies their creditworthiness. We used logistic regression. Logistic regression is a statistical model used for binary classification, which predicts the probability that a given input belongs to one of two classes. In this challenge, the predicted variable was the status of a loan, which is a categorial variable (0 means that the loan is healthy, and 1 means that the loan is at a high risk of defaulting). 
+In this challenge, we used a dataset of historical lending activity from a peer-to-peer lending services company to build a machine-learning model that can identify the creditworthiness of borrowers. We used logistic regression. Logistic regression is a statistical model used for binary classification, which predicts the probability that a given input belongs to one of two classes. In this challenge, the predicted variable was the status of a loan, which is a categorial variable (0 means that the loan is healthy, and 1 means that the loan is at a high risk of defaulting). 
 
 The analysis is in [credit_risk_classification.ipynb](Credit_Risk/credit_risk_classification.ipynb)
 
@@ -20,7 +20,7 @@ The steps of the analyis are detailedb below:
 
 3. The `train_test_split` module from `sklearn` was used to split the data into training and testing variables: `X_train`, `X_test`, `y_train`, and `y_test`. A `random_state` of 1 was assigned to the function to ensure that the train/test split is consistent, i.e. the same data points are assigned to the training and testing sets across multiple runs of code.
 
-4. A logistic regression model, called `lr_model`, was created using `LogisticRegression()` from the `sklearn` library. The model was fit with the training data, `X_train` and `y_train`. The testing set was then used to make preictions of the testing data labels, `y_pred`, with `predict()` using the testing feature data, `X_test`, and the fitted model, `lr_model`.
+4. A logistic regression model, called `lr_model`, was created using `LogisticRegression()` from the `sklearn` library. The model was fit with the training data, `X_train` and `y_train`. A `random_state` of 1 was assigned to the model to make the model consistent between runs of the code. The testing set was then used to make preictions of the testing data labels, `y_pred`, with `predict()` using the testing feature data, `X_test`, and the fitted model, `lr_model`.
 
 5. A confusion matrix for the model was generated using `confusion_matrix()` from `sklearn`, based on `y_test` and `y_pred`.
 
