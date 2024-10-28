@@ -1,2 +1,3 @@
 # credit-risk-classification
-Module 20 Challenge
+- Module 20 Challenge
+- Steph Abegg
