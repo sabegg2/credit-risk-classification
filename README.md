@@ -4,7 +4,7 @@
 
 ## Credit Risk Analysis Report
 
-In this challenge, we used lending data to build a machine-learning model that evaluates borrowers and identifies their creditworthiness. We used logistic regression, since the predicted variable was the status of a loan, which is a categorial variable. 
+In this challenge, we used lending data to build a machine-learning model that evaluates borrowers and identifies their creditworthiness. We used logistic regression, since the predicted variable was the status of a loan, which is a categorial variable (logistic regression is used for creating models for categorical variables). 
 
 ## Overview of the Analysis
 
@@ -44,25 +44,18 @@ If you do not recommend any of the models, please justify your reasoning.
 
    <img src="Credit_Risk/images/dataframe.png" width=900>
 
-3. The labels set from the `loan_status` column were stored in the `y` variable and the features DataFrame (all the columns except `loan_status`) were stored in the `X` variable. The balance of the labels were checked with `value_counts`. In this dataset, 75036 loans were healthy and 2500 were high-risk.
+3. The labels set from the `loan_status` column were stored in the `y` variable and the features DataFrame (all the columns except `loan_status`) were stored in the `X` variable. The "balance" of the labels were checked with `value_counts`. In this dataset, 75036 loans were healthy and 2500 were high-risk.
 
 4. The `train_test_split` module from `sklearn` was used to split the data into training and testing variables: `X_train`, `X_test`, `y_train`, and `y_test`. A `random_state` of 1 was assigned to the function to ensure that the train/test split is consistent, i.e. the same data points are assigned to the training and testing sets across multiple runs of code.
 
 5. A logistic regression model, called `lr_model`, was created using `LogisticRegression()` from the `sklearn` library. The model was fit with the training data, `X_train` and `y_train`. The testing set was then used to make preictions of the testing data labels, `y_pred`, with `predict()` using the testing feature data, `X_test`, and the fitted model, `lr_model`.
 
-6. The accuracy score of the model was calculated `balanced_accuracy_score()` from `sklearn`, based on `y_test` and `y_pred`.
+6. A confusion matrix for the model was generated using `confusion_matrix()` from `sklearn`, based on `y_test` and `y_pred`.
 
-7. A confusion matrix for the model was generated using `confusion_matrix()` from `sklearn`, based on `y_test` and `y_pred`.
+7. A classification report for the model was obtained with `classification_report()` from `sklearn`, based on `y_test` and `y_pred`.
 
-8. A classification report for the model was obtained with `classification_report()` from `sklearn`, based on `y_test` and `y_pred`.
-
-9. The `X_train` and `y_train` data was resampled using `RandomOverSampler()` from the `imbalanced-learn` library, generating resampled data, `X_resampled` and `y_resampled`. There were 56,271 distinct values in the resampled labels data.
-
-10. A logistic regression model, called `lr_model_resampled`, was created with the resampled data. It was used to make predictions, `y_pred_resampled`. The accuracy score, confusion matrix, and classification report were generated for the resampled model.
 
 ## Results
-
-#### Machine Learning Model 1 (Original Data):
 
 Confusion matrix:
 
@@ -73,30 +66,12 @@ Confusion matrix:
 
 Classification report:
 
-<img src="Credit_Risk/images/classification_report_original.png" width=500>
+<img src="Credit_Risk/images/classification_report.png" width=500>
 
-   - Model 1 Balanced Accuracy: 0.967.
-   - Model 1 Accuracy (classification report): 0.993.
-   - Model 1 Precision: for healthy loans the precision is 0.998, for high-risk loans the precision is 0.845.
-   - Model 1 Recall: for healthy loans the recall score is 0.994, for high-risk loans the recall score is 0.940.
-   - Model 1 f1-score: for healthy loans the f1-score is 0.996, for high-risk loans the f1-score is 0.890.
-
-####  Machine Learning Model 2 (Oversampled Data):
-
-Confusion matrix:
-
-|      | Predicted Positive   | Predicted Negative      |
-| ------------- | ------------- | ------------- |
-| Actual Positive  | 55957  | 314  |
-| Actual Negative  |286  | 55985  |
-
-<img src="Credit_Risk/images/classification_report_resampled.png" width=500>
-
-   - Model 2 Balanced Accuracy: 0.995.
-   - Model 2 Accuracy (classification report): 0.995.
-   - Model 2 Precision: for healthy loans the precision is 0.995, for high-risk loans the precision is 0.994.
-   - Model 2 Recall: for healthy loans the recall score is 0.994, for high-risk loans the recall score is 0.995.
-   - Model 2 f1-score: for healthy loans the f1-score is 0.995, for high-risk loans the f1-score is 0.995.
+   - Accuracy: 0.993.
+   - Precision: for healthy loans the precision is 0.998, for high-risk loans the precision is 0.845.
+   - Recall: for healthy loans the recall score is 0.994, for high-risk loans the recall score is 0.940.
+   - f1-score: for healthy loans the f1-score is 0.996, for high-risk loans the f1-score is 0.890.
 
 ## Summary
 
