@@ -55,6 +55,5 @@ Recall, also known as sensitivity or true positive rate, is a metric that quanti
 
 The F1-score is a metric that combines both precision and recall into a single value, providing a balance between the two. It is especially useful when you want to ensure that both false positives and false negatives are minimized, and it's often used when you have an imbalanced dataset (such as the one we have, where there are far more healthy loans than high-risk loans). The logistic regression model had f1-scores of 0.996 for healthy loans and 0.890 for high-risk loans. 
 
-Model performance depends on the problem we are trying to solve. If we wish to predict the healthy loans the logistic regression model does quite well. But if we need to predict the high-risk loans the linear regression model has lower precision, recall, and F1-scores. 
+Model performance depends on the problem we are trying to solve. If the company wishes to predict the healthy loans the logistic regression model does quite well and the results of the model are reliably actionable. But if the company needs to predict high-risk loans, then the logistic regression model does not do quite as well, having lower precision, recall, and F1-scores. Unfortuantely, it is probably more important to predict high-risk loans. If the company wishes to predict high-risk loans, then the model can be used for a genearl prediction, but other factors should be considered in the decision-making process.
 
-It is more important to predict high-risk loans. 
