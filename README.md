@@ -38,7 +38,7 @@ If you do not recommend any of the models, please justify your reasoning.
 
 ## Overview of the Analysis
 
-0. The analysis is in [Credit_Risk/credit_risk_classification.ipynb](credit_risk_classification.ipynb)
+0. The analysis is in [credit_risk_classification.ipynb](Credit_Risk/credit_risk_classification.ipynb)
 
 1. The data is in `lending_data.csv`, which contains `loan_size`, `interest_rate`, `borrower_income`, `debt_to_income`, `num_of_accounts`, `derogatory_marks`, `total_debt`, and `loan_status`. The `loan_status` column contains either 0 or 1, where 0 means that the loan is healthy, and 1 means that the loan is at a high risk of defaulting. The data was stored the data in a dataframe. A screenshot of the first five rows of the dataframe is shown below.
 
