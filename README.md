@@ -8,6 +8,36 @@ In this challenge, we used lending data to build a machine-learning model that e
 
 ## Overview of the Analysis
 
+In this section, describe the analysis you completed for the machine learning models used in this Challenge. This might include:
+
+* Explain the purpose of the analysis.
+* Explain what financial information the data was on, and what you needed to predict.
+* Provide basic information about the variables you were trying to predict (e.g., `value_counts`).
+* Describe the stages of the machine learning process you went through as part of this analysis.
+* Briefly touch on any methods you used (e.g., `LogisticRegression`, or any other algorithms).
+
+## Results
+
+Using bulleted lists, describe the accuracy scores and the precision and recall scores of all machine learning models.
+
+* Machine Learning Model 1:
+    * Description of Model 1 Accuracy, Precision, and Recall scores.
+
+## Summary
+
+Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. For example:
+
+* Which one seems to perform best? How do you know it performs best?
+* Does performance depend on the problem we are trying to solve? (For example, is it more important to predict the `1`'s, or predict the `0`'s? )
+
+If you do not recommend any of the models, please justify your reasoning.
+
+
+
+
+
+## Overview of the Analysis
+
 0. The analysis is in [credit_risk_classification.ipynb](credit_risk_classification.ipynb)
 
 1. The data is in `lending_data.csv`, which contains `loan_size`, `interest_rate`, `borrower_income`, `debt_to_income`, `num_of_accounts`, `derogatory_marks`, `total_debt`, and `loan_status`. The `loan_status` column contains either 0 or 1, where 0 means that the loan is healthy, and 1 means that the loan is at a high risk of defaulting. The data was stored the data in a dataframe. A screenshot of the first five rows of the dataframe is shown below.
@@ -68,7 +98,7 @@ Confusion matrix:
    - Model 2 Recall: for healthy loans the recall score is 0.994, for high-risk loans the recall score is 0.995.
    - Model 2 f1-score: for healthy loans the f1-score is 0.995, for high-risk loans the f1-score is 0.995.
 
-## Conclusions
+## Summary
 
 The accuracy score represents the proportion of correctly predicted labels (both true positives and true negatives) out of the total number of predictions in the test set. The accuracy scores of the logistic regression models with original data and resampled data, respectively, are 0.993 and 0.995. So both models are quite accurate with the resampled data giving slightly higher accuracy.
 
