@@ -1,3 +1,85 @@
 # credit-risk-classification
 - Module 20 Challenge
 - Steph Abegg
+
+## Credit Risk Analysis Report
+
+In this challenge, we used lending data to build a machine-learning model that evaluates borrowers and identifies their creditworthiness. We used logistic regression, since the predicted variable was the status of a loan, which is a categorial variable. 
+
+## Overview of the Analysis
+
+0. The analysis is in [credit_risk_classification.ipynb](credit_risk_classification.ipynb)
+
+1. The data is in `lending_data.csv`, which contains `loan_size`, `interest_rate`, `borrower_income`, `debt_to_income`, `num_of_accounts`, `derogatory_marks`, `total_debt`, and `loan_status`. The `loan_status` column contains either 0 or 1, where 0 means that the loan is healthy, and 1 means that the loan is at a high risk of defaulting. The data was stored the data in a dataframe. A screenshot of the first five rows of the dataframe is shown below.
+
+   <img src="images/dataframe.png" width=900>
+
+3. The labels set from the `loan_status` column were stored in the `y` variable and the features DataFrame (all the columns except `loan_status`) were stored in the `X` variable. The balance of the labels were checked with `value_counts`. In this dataset, 75036 loans were healthy and 2500 were high-risk.
+
+4. The `train_test_split` module from `sklearn` was used to split the data into training and testing variables: `X_train`, `X_test`, `y_train`, and `y_test`. A `random_state` of 1 was assigned to the function to ensure that the train/test split is consistent, i.e. the same data points are assigned to the training and testing sets across multiple runs of code.
+
+5. A logistic regression model, called `lr_model`, was created using `LogisticRegression()` from the `sklearn` library. The model was fit with the training data, `X_train` and `y_train`. The testing set was then used to make preictions of the testing data labels, `y_pred`, with `predict()` using the testing feature data, `X_test`, and the fitted model, `lr_model`.
+
+6. The accuracy score of the model was calculated `balanced_accuracy_score()` from `sklearn`, based on `y_test` and `y_pred`.
+
+7. A confusion matrix for the model was generated using `confusion_matrix()` from `sklearn`, based on `y_test` and `y_pred`.
+
+8. A classification report for the model was obtained with `classification_report()` from `sklearn`, based on `y_test` and `y_pred`.
+
+9. The `X_train` and `y_train` data was resampled using `RandomOverSampler()` from the `imbalanced-learn` library, generating resampled data, `X_resampled` and `y_resampled`. There were 56,271 distinct values in the resampled labels data.
+
+10. A logistic regression model, called `lr_model_resampled`, was created with the resampled data. It was used to make predictions, `y_pred_resampled`. The accuracy score, confusion matrix, and classification report were generated for the resampled model.
+
+## Results
+
+#### Machine Learning Model 1 (Original Data):
+
+Confusion matrix:
+
+|      | Predicted Positive   | Predicted Negative      |
+| ------------- | ------------- | ------------- |
+| Actual Positive  | 18658  | 107  |
+| Actual Negative  |37  | 582  |
+
+Classification report:
+
+<img src="images/classification_report_original.png" width=500>
+
+   - Model 1 Balanced Accuracy: 0.967.
+   - Model 1 Accuracy (classification report): 0.993.
+   - Model 1 Precision: for healthy loans the precision is 0.998, for high-risk loans the precision is 0.845.
+   - Model 1 Recall: for healthy loans the recall score is 0.994, for high-risk loans the recall score is 0.940.
+   - Model 1 f1-score: for healthy loans the f1-score is 0.996, for high-risk loans the f1-score is 0.890.
+
+####  Machine Learning Model 2 (Oversampled Data):
+
+Confusion matrix:
+
+|      | Predicted Positive   | Predicted Negative      |
+| ------------- | ------------- | ------------- |
+| Actual Positive  | 55957  | 314  |
+| Actual Negative  |286  | 55985  |
+
+<img src="images/classification_report_resampled.png" width=500>
+
+   - Model 2 Balanced Accuracy: 0.995.
+   - Model 2 Accuracy (classification report): 0.995.
+   - Model 2 Precision: for healthy loans the precision is 0.995, for high-risk loans the precision is 0.994.
+   - Model 2 Recall: for healthy loans the recall score is 0.994, for high-risk loans the recall score is 0.995.
+   - Model 2 f1-score: for healthy loans the f1-score is 0.995, for high-risk loans the f1-score is 0.995.
+
+## Conclusions
+
+The accuracy score represents the proportion of correctly predicted labels (both true positives and true negatives) out of the total number of predictions in the test set. The accuracy scores of the logistic regression models with original data and resampled data, respectively, are 0.993 and 0.995. So both models are quite accurate with the resampled data giving slightly higher accuracy.
+
+The balanced accuracy score is the average of recall obtained on each class. It takes into account the performance of the model on both the positive and negative classes, adjusting for class imbalance. The balanced accuracy scores of the logistic regression models with original data and resampled data, respectively, are 0.967 and 0.995. The logistic regression models built on resampled data has higher balanced accuracy (there is an imbalance in the regression model built on original data between its recall for healthy and high-risk loans).
+
+The precision quantifies how many of the positive predictions made by a logistic regression model are actually correct. In other words, precision tells you the proportion of true positives out of all the predicted positives (both true and false). The logistic regression model with original data had precision scores of 0.998 for healthy loans and 0.845 for high-risk loans, while the model with resampled data had precision scores of 0.995 for healthy loans and 0.994 for high-risk loans. So, the logistic regression model with original data was better for predicting healthy loans while the  logistic regression model with resampled data was better for predicting high-risk loans.
+
+Recall, also known as sensitivity or true positive rate, is a metric that quantifies how well a logistic regression model can identify actual positives from the dataset. In other words, it measures the proportion of true positives that were correctly predicted by the model out of all actual positive cases. The lowest recall score of 0.940 is for the prediction of high-risk loans by the logistic regression model with original data, while all other recall scores are 0.994 or higher.
+
+The F1-score is a metric that combines both precision and recall into a single value, providing a balance between the two. It is especially useful when you want to ensure that both false positives and false negatives are minimized, and it's often used when you have an imbalanced dataset. The lowest F1-score of 0.890 is for the prediction of high-risk loans by the logistic regression model with original data, while all other F1-scores are 0.995 or higher.
+
+Model performance depends on the problem we are trying to solve. If we wish to predict the healthy loans the logistic regression model with the original data makes slightly better predictions than the logistic model with resampled data. But the logistic model still does quite well. However, if we need to predict the high-risk loans the linear regression model with the resampled data does much better, with higher precision, recall, and F1-scores.
+
+It is more important to predict high-risk loans, therefore, I would recommend the resampled model because it does a much better job of predicting high-risk loans than the first model and still does a good job predicting healthy loans as well.
