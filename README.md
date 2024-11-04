@@ -24,9 +24,9 @@ The steps of the analysis are detailed below:
 
 5. The logistic regression model was then used to make predictions of the testing data labels, `y_pred`, with `predict()` using the testing feature data, `X_test`, as input.
 
-5. A confusion matrix for the model was generated using `confusion_matrix()` from `sklearn`, based on `y_test` and `y_pred`.
+5. A confusion matrix for the model was generated using `confusion_matrix()` from `sklearn`, based on `y_test` and `y_pred`. The testing data is used to analyze the model's performance, since this is using data the model has not seen before. Using the training data would be biased because the model was trained on it.
 
-6. A classification report for the model was obtained with `classification_report()` from `sklearn`, based on `y_test` and `y_pred`.
+6. A classification report for the model was obtained with `classification_report()` from `sklearn`, based on `y_test` and `y_pred`. The testing data is used to analyze the model's performance, since this is using data the model has not seen before. Using the training data would be biased because the model was trained on it.
 
 
 ## Results
