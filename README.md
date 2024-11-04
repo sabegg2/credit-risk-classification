@@ -18,7 +18,7 @@ The steps of the analysis are detailed below:
 
 2. The loan status label set (i.e. 0 or 1) from the `loan_status` column were stored in the `y` variable and the features DataFrame (all the columns except `loan_status`) were stored in the `X` variable. The "balance" of the labels were checked with `value_counts`. In this dataset, 75036 loans were healthy and 2500 were high-risk.
 
-3. The `train_test_split` module from `sklearn` was used to split the data into training and testing variables: `X_train`, `X_test`, `y_train`, and `y_test`. A `random_state` of 1 was assigned to the function to ensure that the train/test split is consistent, i.e. the same data points are assigned to the training and testing sets across multiple runs of code.
+3. The `train_test_split` module from `sklearn` was used to split the data into training and testing variables: `X_train`, `X_test`, `y_train`, and `y_test`. A `random_state` of 1 was assigned to the function to ensure that the train/test split is consistent, i.e. the same data points are assigned to the training and testing sets across multiple runs of code. A `stratify=y` was used to keep the same proportion of classes in `y` across `y_train` and `y_test`. This is particularly useful for classification tasks where you may have imbalanced classes, such as in this dataset where there are far more healthy loans than high-risk loans.
 
 4. A logistic regression model, called `lr_model`, was created using `LogisticRegression()` from the `sklearn` library. The model was fit with the training data, `X_train` and `y_train`. A `random_state` of 1 was assigned to the model to make the model consistent between runs of the code. 
 
